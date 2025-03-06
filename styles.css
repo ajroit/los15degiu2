@@ -145,7 +145,7 @@ h6 {
 /* Hero section */
 .hero {
     position: relative;
-    height: 100vh;
+    min-height: 100vh; /* Cambiado de height a min-height */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -175,8 +175,7 @@ h6 {
     width: 300px;
     height: auto;
     display: block;
-    margin: 250px auto 20px auto;
-    /* Aumentamos el margin-top */
+    margin: 150px auto 20px auto; /* Reducimos el margen superior */
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
@@ -185,6 +184,7 @@ h6 {
     position: relative;
     z-index: 1;
     max-width: 800px;
+    padding-bottom: 50px; /* Ajusta el padding inferior */
 }
 
 .hero h1 {
@@ -253,6 +253,8 @@ h6 {
 }
 
 /* Invitation section - NUEVA VERSIÓN MEJORADA */
+
+
 .invitation {
     padding: 5rem 0;
     background-color: var(--white);
@@ -500,7 +502,7 @@ h6 {
 }
 
 /* Media queries para la sección de invitación */
-@media (min-width: 768px) {
+(min-width: 768px) {
     .event-details {
         flex-direction: row;
         justify-content: space
@@ -513,7 +515,19 @@ h6 {
         width: 33%;
     }
 }
+@media (max-width: 767px) {
+    .gift-card {
+        text-align: left; /* Alinea el contenido a la izquierda */
+    }
 
+    .gift-options {
+        align-items: center; /* Centra verticalmente las gift-cards */
+    }
+
+    .gift-card p {
+        text-align: center; /* Centra los párrafos */
+    }
+}
 @media (max-width: 767px) {
     .invitation-card {
         padding: 2rem 1.5rem;
@@ -591,6 +605,7 @@ h6 {
     padding: 1.5rem;
     border-radius: 0.5rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centrar el contenido del dress-code */
 }
 
 .dress-code h3 {
@@ -606,6 +621,7 @@ h6 {
 .dress-tags {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center; /* Centrar los tags horizontalmente */
     gap: 1rem;
     margin-top: 1rem;
 }
@@ -626,10 +642,12 @@ h6 {
     border-radius: 0.5rem;
     padding: 1.5rem;
     display: flex;
-    align-items: center;
+    flex-direction: column; /* Alinear verticalmente en columnas */
+    align-items: center; /* Centrar los elementos en la columna */
     gap: 1.5rem;
     position: relative;
     overflow: hidden;
+    text-align: center; /* Asegurar que el texto también esté centrado */
 }
 
 .no-green-warning::before {
@@ -682,12 +700,11 @@ h6 {
 
 @media (max-width: 767px) {
     .no-green-warning {
-        flex-direction: column;
+        flex-direction: column; /* Asegurarse de que sea columna en mobile */
         text-align: center;
         gap: 1rem;
     }
 }
-
 /* Gallery section */
 .gallery {
     padding: 5rem 0;
@@ -1106,6 +1123,23 @@ textarea:focus {
 
     .gift-options {
         flex-direction: column;
+    }
+
+    /* Centrar elementos en versión móvil */
+    .event-details {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .event-date,
+    .event-time,
+    .event-location {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-content {
+        text-align: center;
     }
 }
 

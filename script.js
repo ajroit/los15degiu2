@@ -1,5 +1,5 @@
 ﻿// Fecha del evento (año, mes [0-11], día, hora, minuto)
-const eventDate = new Date(2025, 4, 20, 20, 0, 0);
+const eventDate = new Date(2025, 4, 20, 22, 0, 0);
 
 // Función para actualizar el contador
 function updateCountdown() {
@@ -252,5 +252,14 @@ window.addEventListener("resize", () => {
     // Asegurarse de que la mariposa permanezca dentro de la ventana
     if (x > window.innerWidth - 64) x = window.innerWidth - 64;
     if (y > window.innerHeight - 64) y = window.innerHeight - 64;
+});
+
+// Inhabilitar interacciones con la mariposa
+butterfly.addEventListener('mousedown', (e) => {
+    e.preventDefault(); // Evita el comportamiento predeterminado al hacer clic
+});
+
+butterfly.addEventListener('touchstart', (e) => {
+    e.preventDefault(); // Evita el comportamiento predeterminado al tocar
 });
 /* FIN - Script de la Mariposa */
