@@ -1,5 +1,5 @@
 ﻿// Fecha del evento (año, mes [0-11], día, hora, minuto)
-const eventDate = new Date(2025, 4, 20, 22, 0, 0);
+const eventDate = new Date(2025, 6, 20, 22, 0, 0);
 
 // Función para actualizar el contador
 function updateCountdown() {

@@ -813,6 +813,34 @@ textarea {
     font-family: "Montserrat", sans-serif;
     font-size: 1rem;
 }
+select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--green-200);
+    border-radius: 0.25rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    background-color: var(--white);
+    cursor: pointer;
+    appearance: none; /* Oculta el diseño por defecto del navegador */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("https://cdn-icons-png.flaticon.com/512/25/25623.png"); /* Ícono de flecha */
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 2rem; /* Espacio para la flecha */
+}
+
+select:hover {
+    border-color: var(--green-300);
+}
+
+select:focus {
+    border-color: var(--green-400);
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 128, 0, 0.2);
+}
 
 input:focus,
 textarea:focus {
