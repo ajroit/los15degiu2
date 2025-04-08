@@ -74,7 +74,7 @@ rsvpForm.addEventListener("submit", async (e) => {
     const formData = new FormData(rsvpForm);
 
     try {
-        const response = await fetch('https://los15degiu.ajroit-wa.workers.dev/', { // Reemplaza con la ruta de tu Worker
+        const response = await fetch('https://los15degiu.ajroit-wa.workers.dev/submit', { // Reemplaza con la ruta de tu Worker
             method: 'POST',
             body: formData,
         });
