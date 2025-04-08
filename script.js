@@ -68,22 +68,41 @@ const rsvpForm = document.getElementById("rsvpForm");
 const toast = document.getElementById("toast");
 const toastClose = document.getElementById("toastClose");
 
-rsvpForm.addEventListener("submit", (e) => {
+rsvpForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    // Aquí normalmente enviarías los datos a un servidor
-    // Por ahora solo mostraremos la notificación
+    const formData = new FormData(rsvpForm);
 
-    // Mostrar toast
-    toast.classList.add("show");
+    try {
+        const response = await fetch('https://los15degiu.ajroit-wa.workers.dev/', { // Reemplaza con la ruta de tu Worker
+            method: 'POST',
+            body: formData,
+        });
 
-    // Ocultar toast después de 5 segundos
-    setTimeout(() => {
-        toast.classList.remove("show");
-    }, 5000);
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error('Error del servidor:', errorText);
+            throw new Error(`Error al enviar la información: ${response.status} - ${errorText}`);
+        }
 
-    // Resetear formulario
-    rsvpForm.reset();
+        const data = await response.json();
+        console.log('Respuesta del servidor:', data);
+
+        // Mostrar toast
+        toast.classList.add("show");
+
+        // Ocultar toast después de 5 segundos
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 5000);
+
+        // Resetear formulario
+        rsvpForm.reset();
+
+    } catch (error) {
+        console.error('Error al enviar la información:', error);
+        alert('Ocurrió un error al enviar la información. Por favor, inténtalo de nuevo.');
+    }
 });
 
 // Cerrar toast al hacer clic en el botón de cerrar
